@@ -1,17 +1,17 @@
 pipeline{
-    agent any
+    agent {label 'maven'}
     stages{
-        stage('CloneCode'){
+        stage('SCM'){
             steps{
-                git 'https://github.com/spring-projects/spring-petclinic.git'                
+                git url:'https://github.com/Pratik-Ahire-git/Azure-DevOps-Zoon.git'
             }
-            steps("TestBuild"){
+            stage('Build'){
                 step{
-                    
+                    sh 'mvn clean package'
+                    sh 'java -jar **/target/*.jar'                    
                 }
-            }
-           
-        }
 
+            }
+        }
     }
 }
