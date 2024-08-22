@@ -1,12 +1,12 @@
-pipeline{
+pipeline {
     agent {label 'maven'}
-    stages{
-        stage('SCM'){
-            steps{
+    stages {
+        stage('SCM') {
+            steps {
                 git url:'https://github.com/Pratik-Ahire-git/Azure-DevOps-Zoon.git'
             }
-            stage('Build'){
-                step{
+            stage('Build') {
+                steps  {
                     sh 'mvn clean package'
                     sh 'java -jar **/target/*.jar'                    
                 }
