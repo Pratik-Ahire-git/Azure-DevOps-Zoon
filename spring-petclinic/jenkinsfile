@@ -5,12 +5,11 @@ pipeline {
             steps {
                 git url:'https://github.com/Pratik-Ahire-git/Azure-DevOps-Zoon.git'
             }
-            stage('Build') {
-                steps  {
-                    sh 'mvn clean package'
-                    sh 'java -jar **/target/*.jar'                    
-                }
-
+        }
+        stage('BUILD') {
+            steps {
+                sh 'mvn clean package'
+                sh 'java -jar **/target/*.jar'
             }
         }
     }
