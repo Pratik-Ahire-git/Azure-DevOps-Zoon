@@ -4,9 +4,10 @@ pipeline {
         stage('SCM') {
             steps {
                 git url:'https://github.com/Pratik-Ahire-git/Azure-DevOps-Zoon.git'
+                branch: 'main'
             }
         }
-        stage('BUILD') {
+        stage('Build') {
             steps {
                 sh 'mvn clean package'
                 sh 'java -jar **/target/*.jar'
